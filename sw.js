@@ -1,8 +1,8 @@
 const STATIC_FILES = [
-  '/',
-  '/favicon.ico',
-  '/manifest.json',
-  '/src/js/index.js'
+  '/pwa/',
+  '/pwa/favicon.ico',
+  '/pwa/manifest.json',
+  '/pwa/src/js/index.js'
 ];
 
 const CACHE_STATIC_NAME = 'static-v2';
