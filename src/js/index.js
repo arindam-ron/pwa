@@ -3,3 +3,7 @@ if ('serviceWorker' in navigator) {
     scope: '/pwa/'
   }).catch(err => console.log(err));
 }
+
+if ('Notification' in window) {
+  Notification.requestPermission();
+}
