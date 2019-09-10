@@ -45,3 +45,44 @@ self.addEventListener('fetch', event => {
       })
   );
 });
+
+self.addEventListener('push', event => {
+  console.log('Push Notification received', event);
+
+  var data = {
+    title: 'LBS notification',
+    content: 'Something new happened',
+    openUrl: '/'
+  };
+  if (event.data) {
+    data.content = event.data.text();
+  }
+
+  var options = {
+    body: data.content,
+    icon: '/pwa/src/images/icons/content_paste_black-96x96.png',
+    // image: '/src/images/sf-boat.jpg',
+    lang: 'en-US', // BCP 47
+    vibrate: [100, 50, 200],
+    badge: '/pwa/src/images/icons/content_paste_black-96x96.png',
+    tag: 'post-notification',
+    renotify: true,
+    data: {
+      openUrl: data.openUrl
+    },
+    actions: [
+      {
+        action: 'confirm',
+        title: 'OK'
+      },
+      {
+        action: 'cancel',
+        title: 'CANCEL'
+      }
+    ]
+  };
+
+  if (Notification.permission !== 'denied') {
+    event.waitUntil(self.registration.showNotification(data.title, options));
+  }
+});
