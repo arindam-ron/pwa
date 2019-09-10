@@ -60,11 +60,11 @@ self.addEventListener('push', event => {
 
   var options = {
     body: data.content,
-    icon: '/pwa/src/images/icons/content_paste_black-96x96.png',
+    icon: '/pwa/src/images/icons/content_paste_black_96x96.png',
     // image: '/src/images/sf-boat.jpg',
     lang: 'en-US', // BCP 47
     vibrate: [100, 50, 200],
-    badge: '/pwa/src/images/icons/content_paste_black-96x96.png',
+    badge: '/pwa/src/images/icons/content_paste_black_96x96.png',
     tag: 'post-notification',
     renotify: true,
     data: {
